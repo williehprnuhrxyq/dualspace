@@ -1,24 +1,26 @@
 GREEN='\033[1;32m'
 RESET='\e[0m'
-
+BLUE='\033[1;34m'
 wget https://raw.githubusercontent.com/sarifadim/sifu/main/token.txt  > /dev/null 2>&1
 sleep 1
 TIK=$(shuf -n 1 token.txt)
 USER=$1
 sleep 1
 rm -rf ngrok  ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
-echo -e "${GREEN} Download ngrok ${RESET}"
+echo -e "${BLUE} Download ngrok.... ${RESET}"
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
 tar -xvf ngrok-v3-stable-linux-amd64.tgz  > /dev/null 2>&1
 ./ngrok authtoken $TIK
 nohup ./ngrok tcp 9050 --region ap &>/dev/null &
-echo -e "${GREEN} Download Proxy ${RESET}"
+echo -e "${BLUE} Download Proxy.... ${RESET}"
 wget https://raw.githubusercontent.com/sarifadim/sifu/main/sokpy.py  > /dev/null 2>&1
 sleep 1
 nohup python3 sokpy.py &>/dev/null &
-echo -e "${GREEN} PROXY ADDRESS: ${RESET}"
+echo -e "${BLUE} PROXY ADDRESS: ${RESET}"
+echo
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
-echo -e "${GREEN} YOUR IP ADDRESS: ${RESET}"
-curl ifconfig.me
+echo
+echo -e "${BLUE} YOUR IP ADDRESS: ${RESET}"
+echo -e "${GREEN} $(curl ifconfig.me)${RESET}"
 echo    " ====   DONE  "
 echo "======"
