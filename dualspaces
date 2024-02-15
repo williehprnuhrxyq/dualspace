@@ -25,5 +25,5 @@ echo -e "${RESET}"
 echo
 echo -e "${BLUE} YOUR IP ADDRESS: ${RESET}"
 echo -e "${GREEN} $(curl ifconfig.me)${RESET}"
-echo    " ====   DONE  "
-echo "======"
+echo
+echo
