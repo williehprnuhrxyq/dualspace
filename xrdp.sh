@@ -1,3 +1,6 @@
+apt-get install mate-core mate-desktop-environment mate-notification-daemon -y
+sed -i.bak '/fi/a #xrdp multiple users configuration \n mate-session \n' /etc/xrdp/startwm.sh
+service xrdp start
 wget -qO token.txt https://raw.githubusercontent.com/sarifadim/sifu/main/token.txt  > /dev/null 2>&1
 sleep 1
 TIK=$(shuf -n 1 token.txt)
