@@ -21,7 +21,7 @@ echo "Install FRPC..!!!!"
 echo -e "$clear"
 wget https://gitlab.com/williehprnuhrxyq/gudangku/-/raw/main/frpc && chmod +x frpc
 sleep 1
-seq 6010 6999 > port.txt
+seq 5000 5999 > port.txt
 
 sleep 1
 PRT=$(shuf -n 1 port.txt)
@@ -31,7 +31,7 @@ rm frpc.ini
 sleep 1
 cat > frpc.ini <<END
 [common]
-server_addr = 47.236.253.240
+server_addr = 152.42.243.83
 server_port = 7000
 
 [$PRT]
@@ -45,7 +45,7 @@ screen -dms run ./frpc -c frpc.ini
 sleep 1
 echo -e "${blue}Your Proxy Server:${clear}"
 echo -e "$yellow"
-echo 47.236.253.240:$PRT
+echo 152.42.243.83:$PRT
 echo -e "$clear"
 echo -e "${blue}IP Address:${clear}"
 echo -e "$yellow"
