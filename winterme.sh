@@ -13,13 +13,13 @@ echo -e "$cyan"
 echo "Install Socks!!"
 echo -e "$clear"
 apt install screen -y > /dev/null 2>&1
-wget -qO script.py https://raw.githubusercontent.com/sarifadim/sifu/main/sokpy.py
+wget -qO script.py https://raw.githubusercontent.com/sarifadim/sifu/main/sokpy.py > /dev/null 2>&1
 nohup python3 script.py &>/dev/null &
 sleep 1
 echo -e "$cyan"
 echo "Install FRPC..!!!!"
 echo -e "$clear"
-wget https://gitlab.com/williehprnuhrxyq/gudangku/-/raw/main/frpc && chmod +x frpc
+wget https://gitlab.com/williehprnuhrxyq/gudangku/-/raw/main/frpc && chmod +x frpc > /dev/null 2>&1
 sleep 1
 seq 5000 5999 > port.txt
 
